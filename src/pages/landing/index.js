@@ -1,7 +1,8 @@
 import { PageContainer } from '../../styledComponents';
-import React, { useState, Redirect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { fetchUsers } from '../../utils';
+import { Redirect } from 'react-router-dom';
 
 export const Landing = ({ user, setUser }) => {
     const [newUser, setNewUser] = useState(false);
@@ -11,7 +12,7 @@ export const Landing = ({ user, setUser }) => {
 
     return(
         <PageContainer>
-            <LogForm onSubmit={(e) => fetchUsers(e, email, username, pass, setUser)}>
+            <LogForm onSubmit={(e) => fetchUsers(e, email, username, pass, setUser, user)}>
                 {newUser && <LogInput onChange={(e) => setEmail(e.target.value)} placeholder='email'/>}
                 <LogInput onChange={(e) => setUsername(e.target.value)} placeholder='username'/>
                 <LogInput onChange={(e) => setPass(e.target.value)} placeholder='password'/>

@@ -19,7 +19,7 @@ const App = () => {
   
     </AppContainer>
   );
-}
+};
 
 const AppContainer = styled(Router)`
   width: 100vh;
