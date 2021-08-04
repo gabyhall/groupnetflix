@@ -28,14 +28,14 @@ export const updateUser = async (e, email, username, pass, setUser, user) => {
     try {
         let response;
         if (username) {
-            response = await fetch(`${process.env.REACT_APP_REST_API}users`, {
-                method: 'PUT',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    email: email,
-                    username: username,
-                    password: pass,
-                    currentUser: user
+        response = await fetch(`${process.env.REACT_APP_REST_API}users`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            username: username,
+            email: email,
+            password: pass,
+            currentUser: user
                 })
             })
     }
@@ -46,15 +46,14 @@ export const updateUser = async (e, email, username, pass, setUser, user) => {
     }
 };
 
-
 export const deleteUser = async (user, setUser) => {
     try {
         let response;
         if (user) {
-            response = await fetch(`${process.env.REACT_APP_REST_API}users/${user}`, {
-                method: 'DELETE',
-                headers: {'Content-Type': 'application/json'},
-                username: user,
+        response = await fetch(`${process.env.REACT_APP_REST_API}users/${user}`, {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json'},
+            username: user,
             })
     }
     await response.json();
@@ -63,5 +62,3 @@ export const deleteUser = async (user, setUser) => {
         console.log(error);
     }
 };
-   
-
