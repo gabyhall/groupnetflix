@@ -33,11 +33,11 @@ export const addToList = async (item, setAddFilm) => {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    user: "username",           // showing up as null in db//
-                    title: item.title,          // saving to db//
-                    release: item.release_date, // not saving to db//
-                    imageURL: item.poster_path, // not saving to db//
-                    filmID: item.id,            // not saving to db//
+                    user: "username",           // how to pass user to here? //
+                    title: item.title,          
+                    release: item.release_date, 
+                    imageURL: item.poster_path, 
+                    filmID: item.id,            
                 }) 
             })
             const data = await response.json();

@@ -14,7 +14,6 @@ import { addToList } from '../../utils';
    },[])
    
    const onLoad = () => {
-        // hide API key //
      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&l[…]e_video=false&page=1&with_watch_monetization_types=flatrate`)
        .then(response => response.json())
        .then(data => {
