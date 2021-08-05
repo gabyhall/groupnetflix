@@ -1,0 +1,56 @@
+
+img {
+    height: auto;
+    width: 200px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-around;
+    align-content: center;
+    background-color: rgb(127, 208, 255); 
+    /* colours etc. can be changed when styling all */
+}
+
+.filmsList {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 5px;
+    max-width: 25%;
+    margin-top: 18px;   
+}
+
+.info {
+    text-align: center;
+    margin: 5px;
+}
+
+.filmPics {
+    height: auto;
+    max-width: 200px;
+    object-fit: cover;
+    align-self: center;
+    border-radius: 5px;
+}
+
+.btn {
+    font: inherit;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+    border: 1px solid #000;
+    margin: 5px;
+    width: 200px;
+    align-self: center;
+}
+  
+.btn:hover {
+    background-color: #2d149c;
+    border-color: #2d149c;
+  }
