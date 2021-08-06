@@ -1,25 +1,20 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-// import styled from 'styled-components';
-// import { PageContainer } from '../../styledComponents';
 import './index.css';
-
-
-const addtoList = () => {
-    //put function to add film to user's movies database here //
-};
+import { addToList } from '../../utils';
 
  const Films = () => {
    const [films, setFilms] = useState([]);
    const [loading, setLoading] = useState(true);
-   
+   const [addFilm, setAddFilm] = useState([]);
+
+
    useEffect(() => {
      onLoad()
    },[])
    
    const onLoad = () => {
-        // hide API key //
-     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_MOVIE_API_KEY}&l[…]e_video=false&page=1&with_watch_monetization_types=flatrate`)
+     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&l[…]e_video=false&page=1&with_watch_monetization_types=flatrate`)
        .then(response => response.json())
        .then(data => {
          setFilms(data.results)
@@ -46,7 +41,7 @@ const addtoList = () => {
                     <h4 className="info">Release: {item.release_date}</h4>
                     <h4 className="info"> Others rated this: {item.vote_average}</h4>
                     <img className="filmPics" src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="film poster"></img>
-                    <button className="btn" onClick={() => addtoList(item)}>Add to My List</button>
+                    <button className="btn" onClick={() => addToList(item, setAddFilm)}>Add to My List</button>
             </div>
             )
              })} 

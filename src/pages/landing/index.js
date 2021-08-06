@@ -1,8 +1,9 @@
 import { PageContainer } from '../../styledComponents';
-import React, { useState } from 'react';
+import React, { useState, Redirect } from 'react';
 import styled from 'styled-components';
 import { fetchUsers } from '../../utils';
-import { Redirect } from 'react-router-dom';
+import './landing.css'
+import { Nav } from '../../components/navbar'
 
 export const Landing = ({ user, setUser }) => {
     const [newUser, setNewUser] = useState(false);
@@ -12,21 +13,33 @@ export const Landing = ({ user, setUser }) => {
 
     return(
         <PageContainer>
-            <LogForm onSubmit={(e) => fetchUsers(e, email, username, pass, setUser, user)}>
+           <Nav></Nav>
+            <div className = "signIn">
+                <div className = "Container">
+            <LogForm onSubmit={(e) => fetchUsers(e, email, username, pass, setUser)}>
                 {newUser && <LogInput onChange={(e) => setEmail(e.target.value)} placeholder='email'/>}
                 <LogInput onChange={(e) => setUsername(e.target.value)} placeholder='username'/>
                 <LogInput onChange={(e) => setPass(e.target.value)} placeholder='password'/>
-                <LogButton type='submit'>{newUser ? 'Sign Up' : 'Log In'}</LogButton>
+                <div className = "loginButton">
+                <LogButton className = "button" type='submit'>{newUser ? 'Sign Up' : 'Log In'}</LogButton>
+                </div>
             </LogForm>
-            <LogButton type='button' onClick={() => setNewUser(!newUser)}>{newUser ? 'Log In' : 'Sign Up'}</LogButton>
+            <div className = "loginButton">
+            <LogButton type='button' className = "button" onClick={() => setNewUser(!newUser)}>{newUser ? 'Log In' : 'Sign Up'}</LogButton>
             {user && <Redirect to='/home'/>}
+            </div>
+            </div>
+            </div>
         </PageContainer>
 
     )
 }
 
 const LogInput = styled.input`
-    width: 20vw;
+    width: 350px;
+    padding: 5px;
+    margin: 15px;
+    align-content: center;
 `
 
 const LogForm = styled.form`
@@ -34,5 +47,5 @@ const LogForm = styled.form`
 `
 
 const LogButton = styled.button`
-    width: 20vh;
+    width: 350px;
 `
