@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import './index.css';
 import { addToList } from '../../utils';
 
- const Films = () => {
+
+ const Films = ({user}) => {
    const [films, setFilms] = useState([]);
    const [loading, setLoading] = useState(true);
    const [addFilm, setAddFilm] = useState([]);
@@ -31,6 +32,7 @@ import { addToList } from '../../utils';
            <div>
            <div>
               <h1>Logo/Home/Navbar</h1> 
+              <h2>Welcome {user}!</h2>
               <h2>Recent Releases</h2>
            </div>
            <div className="container">
@@ -41,8 +43,8 @@ import { addToList } from '../../utils';
                     <h4 className="info">Release: {item.release_date}</h4>
                     <h4 className="info"> Others rated this: {item.vote_average}</h4>
                     <img className="filmPics" src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="film poster"></img>
-                    <button className="btn" onClick={() => addToList(item, setAddFilm)}>Add to My List</button>
-            </div>
+                    <button className="btn" onClick={() => addToList(item, setAddFilm, user)}>Add to My List</button>
+                </div>
             )
              })} 
         </div>
@@ -51,10 +53,10 @@ import { addToList } from '../../utils';
     }
 }
 
-export const Home = () => {
+export const Home = ({user}) => {
     return (
         <div>
-            <Films/>
+            <Films user={user}/>
         </div>
     )
 }
