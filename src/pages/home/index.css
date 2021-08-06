@@ -11,8 +11,9 @@ img {
     align-items: baseline;
     justify-content: space-around;
     align-content: center;
-    background-color: rgb(127, 208, 255); 
+    background-color: #F4F4F9; 
     /* colours etc. can be changed when styling all */
+    width: 100vw
 }
 
 .filmsList {

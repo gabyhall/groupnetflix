@@ -2,16 +2,17 @@ import { useState } from 'react';
 import { updateUser } from "../../utils";
 import { deleteUser } from "../../utils";
 import { PageContainer } from '../../styledComponents';
-import { Nav } from '../../components/navbar'
 
 
-const Profile = ({user, setUser}) => {
+
+export const Profile = ({user, setUser}) => {
     const [email, setEmail] = useState();
     const [username, setUsername] = useState();
     const [pass,setPassword] = useState();
 
     return (
         <PageContainer>
+           
             <div className ="profileContainer">
             <h1>User Details</h1>
                 <form onSubmit={(e) => updateUser(e, email, username, pass, setUser, user)}>
@@ -36,5 +37,3 @@ const Profile = ({user, setUser}) => {
         </PageContainer>
     )
 };
-
-export default Profile;

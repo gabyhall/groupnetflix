@@ -5,9 +5,8 @@
 
 
 .Nav {
-    color: blue;
     background-color: #093A3E;
-    min-height: 15vh;
+    height: 15vh;
     width: 100vw;
   }
   .login {
@@ -43,5 +42,5 @@
     color: antiquewhite;
   }
   .menuItem:hover {
-    color: midnightblue;
+    color: #58A4B0;
   }

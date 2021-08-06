@@ -83,14 +83,14 @@ export const deleteUser = async (user, setUser) => {
     }
 };
 
-export const addToList = async (item, setAddFilm) => {
+export const addToList = async (item, setAddFilm, user) => {
     try {
         let response;
         response = await fetch(`${process.env.REACT_APP_REST_API}movies`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                user: "username",           // how to pass user to here? //
+                user: user,           // how to pass user to here? //
                 title: item.title,          
                 release: item.release_date, 
                 imageURL: item.poster_path, 
